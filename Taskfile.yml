@@ -1,0 +1,47 @@
+version: '3'
+
+tasks:
+  default:
+    desc: "Показать список доступных команд"
+    cmds:
+      - task --list
+
+  up:
+    desc: "Собрать образы (API + React) и запустить всё (API + Client + База данных)"
+    cmds:
+      - docker compose up -d --build
+
+  down:
+    desc: "Остановить и удалить все контейнеры"
+    cmds:
+      - docker compose down
+
+  restart:
+    desc: "Перезапустить контейнеры (без пересборки)"
+    cmds:
+      - docker compose restart
+
+  logs:
+    desc: "Показать логи API в реальном времени"
+    cmds:
+      - docker compose logs -f api
+
+  logs-db:
+    desc: "Показать логи базы данных"
+    cmds:
+      - docker compose logs -f db
+
+  logs-client:
+    desc: "Показать логи React-клиента (Nginx)"
+    cmds:
+      - docker compose logs -f frontend
+
+  logs-all:
+    desc: "Показать логи всех контейнеров одновременно"
+    cmds:
+      - docker compose logs -f
+
+  clean:
+    desc: "Полностью удалить контейнеры и volumes (ОСТОРОЖНО: удалит данные БД!)"
+    cmds:
+      - docker compose down -v

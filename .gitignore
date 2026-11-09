@@ -1,0 +1,13 @@
+# Секреты и локальные настройки
+.env
+appsettings.*.local.json
+*.user
+*.tmp
+
+# Сборка .NET
+bin/
+obj/
+
+# IDE
+.vs/
+.idea/
